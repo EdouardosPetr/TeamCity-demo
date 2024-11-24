@@ -1,0 +1,13 @@
+{
+  "name": "teamcity-demo",
+  "version": "1.0.0",
+  "description": "A simple Node.js app with an HTTP server for TeamCity CI/CD demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Edouardos Petriadis",
+  "license": "ISC"
+}
