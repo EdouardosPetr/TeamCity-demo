@@ -51,7 +51,7 @@ object Build : BuildType({
         }
         kotlinFile {
             id = "kotlinScript"
-            path = "settings.kts"
+            path = ".teamcity/settings.kts"
         }
     }
 
