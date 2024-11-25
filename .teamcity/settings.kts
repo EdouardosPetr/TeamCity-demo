@@ -47,7 +47,7 @@ object Build : BuildType({
         }
         nodeJS {
             id = "nodejs_runner_1"
-            shellScript = "npm run test"
+            shellScript = "npm start"
         }
         kotlinFile {
             id = "kotlinScript"
