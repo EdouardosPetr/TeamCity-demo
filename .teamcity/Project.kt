@@ -1,29 +1,22 @@
+import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 
 version = "2024.1"
 
 project {
-    name = "Hello World Project"
+    name = "Minimal Project"
 
-    buildType(HelloWorldBuild)
+    buildType(MinimalBuild)
 }
 
-object HelloWorldBuild : BuildType({
-    name = "Build Hello World"
+object MinimalBuild : BuildType({
+    name = "Minimal Build"
 
     steps {
         script {
-            name = "Run Hello World"
-            scriptContent = "node index.js"
+            name = "Print Hello"
+            scriptContent = "echo 'Hello World'"
         }
-    }
-
-    triggers {
-        vcs {}
-    }
-
-    vcs {
-        root(DslContext.settingsRoot)
     }
 })
 
