@@ -1,22 +1,37 @@
-import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
 
+// TeamCity configuration version (match your TeamCity server version)
 version = "2024.1"
 
+// Define the project
 project {
-    name = "Minimal Project"
+    name = "Hello World Project"
 
-    buildType(MinimalBuild)
+    // Add build configurations
+    buildType(HelloWorldBuild)
 }
 
-object MinimalBuild : BuildType({
-    name = "Minimal Build"
+// Define the build configuration
+object HelloWorldBuild : BuildType({
+    name = "Build Hello World"
 
+    // Add build steps
     steps {
         script {
-            name = "Print Hello"
-            scriptContent = "echo 'Hello World'"
+            name = "Run Hello World"
+            scriptContent = "node index.js"
         }
     }
-})
 
+    // Add triggers for automatic builds
+    triggers {
+        vcs {
+            // Trigger builds on code changes
+        }
+    }
+
+    // Version control settings
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+})
