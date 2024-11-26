@@ -17,6 +17,13 @@ object BuildHelloWorld : BuildType({
     }
 
     steps {
+        // Step 1: Check Node.js version
+        script {
+            name = "Check Node Version"
+            scriptContent = "node -v"  // Verifies that Node.js is installed
+        }
+
+        // Step 2: Run the Hello World app
         script {
             name = "Run Hello World"
             scriptContent = "node index.js" // This runs the 'Hello World' app
