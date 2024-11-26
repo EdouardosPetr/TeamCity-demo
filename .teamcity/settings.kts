@@ -2,6 +2,7 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildSteps.kotlinFile
 import jetbrains.buildServer.configs.kotlin.buildSteps.nodeJS
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
 /*
@@ -52,6 +53,11 @@ object Build : BuildType({
         kotlinFile {
             id = "kotlinScript"
             path = "settings.kts"
+        }
+        script {
+            name = "List Workspace"
+            id = "List_Workspace"
+            scriptContent = "ls -R /mnt/agent/work/"
         }
     }
 
