@@ -1,38 +1,29 @@
-import jetbrains.buildServer.configs.kotlin.*
-import jetbrains.buildServer.configs.kotlin.v2020_2.*
-
-version = "2024.1"
-
-project {
-    name = "Hello World Project"
-
-    buildType(BuildHelloWorld)
-}
+import jetbrains.buildServer.configs.kotlin.v2024_1.*
 
 object BuildHelloWorld : BuildType({
     name = "Build Hello World"
 
+    // Define the VCS root
     vcs {
-        root(DslContext.settingsRoot) // This binds the VCS root to the GitHub repo
+        root(DslContext.settingsRoot)  // Bind to the VCS defined in settings.kts
     }
 
+    // Define the build steps
     steps {
-        // Step 1: Check Node.js version
         script {
             name = "Check Node Version"
             scriptContent = "node -v"  // Verifies that Node.js is installed
         }
-
-        // Step 2: Run the Hello World app
         script {
             name = "Run Hello World"
-            scriptContent = "node index.js" // This runs the 'Hello World' app
+            scriptContent = "node index.js" // Runs the Hello World script
         }
     }
 
+    // Define triggers
     triggers {
-        vcs {
-            // This trigger will automatically build the project on code changes.
+        vcs {  // Automatically trigger builds on VCS changes
         }
     }
 })
+
