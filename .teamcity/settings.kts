@@ -50,14 +50,14 @@ object Build : BuildType({
             id = "nodejs_runner_1"
             shellScript = "npm run test"
         }
-        kotlinFile {
-            id = "kotlinScript"
-            path = "settings.kts"
-        }
         script {
             name = "List Workspace"
             id = "List_Workspace"
             scriptContent = "ls -R /mnt/agent/work/"
+        }
+        kotlinFile {
+            id = "kotlinScript"
+            path = "settings.kts"
         }
     }
 
