@@ -47,11 +47,11 @@ object Build : BuildType({
         }
         nodeJS {
             id = "nodejs_runner_1"
-            shellScript = "npm start"
+            shellScript = "npm run test"
         }
         kotlinFile {
             id = "kotlinScript"
-            path = ".teamcity/settings.kts"
+            path = "settings.kts"
         }
     }
 
