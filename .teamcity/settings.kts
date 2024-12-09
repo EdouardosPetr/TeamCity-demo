@@ -59,6 +59,7 @@ object Build : BuildType({
         vcs {
             triggerRules = "+:src/main/*"
             branchFilter = "+:refs/heads/*"
+
         }
     }
 
