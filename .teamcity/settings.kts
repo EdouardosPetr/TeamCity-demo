@@ -1,6 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
-import jetbrains.buildServer.configs.kotlin.buildSteps.kotlinFile
 import jetbrains.buildServer.configs.kotlin.buildSteps.nodeJS
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 
@@ -47,11 +46,7 @@ object Build : BuildType({
         }
         nodeJS {
             id = "nodejs_runner_1"
-            shellScript = "npm start"
-        }
-        kotlinFile {
-            id = "kotlinScript"
-            path = ".teamcity/settings.kts"
+            shellScript = "npm run test"
         }
     }
 
