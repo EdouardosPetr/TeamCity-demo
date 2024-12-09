@@ -26,10 +26,6 @@ object HelloWorldBuild : BuildType({
     // Add triggers for automatic builds
     triggers {
         vcs {
-            triggerRules = "+:src/main/*"
-            branchFilter = "+:refs/heads/*"
-            
-            
             // Trigger builds on code changes
         }
     }
